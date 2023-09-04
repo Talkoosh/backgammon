@@ -1,0 +1,39 @@
+.container {
+    width: 600px;
+    height: 600px;
+    border: 10px solid #ab752f;
+    background-color: #f7ecc8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.middleBar {
+    width: 50px;
+    height: 100%;
+    background-color: #ab752f;
+}
+
+.triangleUp {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid black;
+}
+
+.triangleDown {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #f00;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
