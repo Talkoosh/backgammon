@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
+import { useRef, useState } from 'react';
 import styles from './board.module.css';
 export const Board = () => {
     const [boardData, setBoardData] = useState(getInitialBoardData());
+    const triangleHeight = Math.floor(window.innerHeight / 3);
+    console.log('🚀 ~ file: index.jsx:6 ~ Board ~ triangleHeight:', triangleHeight);
 
     return (
         <div className={styles.container}>
-            {boardData.map((row, index) => (
+            <div className={styles.middleBar}></div>
+            {boardData.map((row, rowIndex) => (
                 <div className={styles.row} key={Math.random(0, 200)}>
-                    {row.map((triangle) => (
-                        <span key={Math.random(0, 200)} className={index === 0 ? styles.triangleDown : styles.triangleUp}></span>
+                    {row.map((triangle, triangleIndex) => (
+                        <>
+                            <span
+                                style={rowIndex === 0 ? { borderTopWidth: triangleHeight } : { borderBottomWidth: triangleHeight }}
+                                key={Math.random(0, 200)}
+                                className={`${rowIndex === 0 ? styles.triangleDown : styles.triangleUp} ${styles.triangle}`}
+                            ></span>
+                            {triangleIndex === 5 ? <span className={styles.empty}></span> : ''}
+                        </>
                     ))}
                 </div>
             ))}
@@ -19,7 +29,7 @@ export const Board = () => {
 const getInitialBoardData = () => {
     const initialData = [[], []];
     for (let i = 0; i < 2; i++) {
-        for (let k = 0; k < 6; k++) {
+        for (let k = 0; k < 12; k++) {
             initialData[i][k] = null;
         }
     }
