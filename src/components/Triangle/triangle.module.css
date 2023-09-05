@@ -1,0 +1,43 @@
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+}
+
+.triangleUp {
+    border-bottom: 20px solid lightcoral;
+}
+
+.triangleUp:nth-child(even) {
+    border-bottom-color: lightblue;
+}
+
+.triangleDown {
+    border-top: 20px solid lightblue;
+}
+
+.triangleDown:nth-child(even) {
+    border-top-color: lightcoral;
+}
+
+.checkersContainerTop,
+.checkersContainerBottom {
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+.checkersContainerTop {
+    top: 0;
+}
+
+.checkersContainerBottom {
+    bottom: 0;
+}
+
+.checker {
+    width: 30px;
+    height: 30px;
+    background-color: green;
+    border-radius: 50%;
+}
