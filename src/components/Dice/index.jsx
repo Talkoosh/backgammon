@@ -1,24 +1,34 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import diceOne from '../../assets/inverted-dice-1.svg';
 import diceTwo from '../../assets/inverted-dice-2.svg';
 import diceThree from '../../assets/inverted-dice-3.svg';
 import diceFour from '../../assets/inverted-dice-4.svg';
 import diceFive from '../../assets/inverted-dice-5.svg';
 import diceSix from '../../assets/inverted-dice-6.svg';
+import styles from './dice.module.css';
+import { BackgammonContext } from '../../context/backgammonContext';
 
 export const Dice = () => {
     const [resultOne, setResultOne] = useState(generateRandomDiceResult());
     const [resultTwo, setResultTwo] = useState(generateRandomDiceResult());
+    const { diceResults, setDiceResults } = useContext(BackgammonContext);
 
+    useEffect(() => {
+        setDiceResults({
+            resultOne,
+            resultTwo,
+        });
+    }, [resultOne, resultTwo]);
     return (
         <div
             onClick={() => {
                 setResultOne(generateRandomDiceResult());
                 setResultTwo(generateRandomDiceResult());
             }}
+            className={styles.container}
         >
-            <img style={{ width: '40px', height: '40px' }} src={getDiceSvg(resultOne)} alt="" />
-            <img style={{ width: '40px', height: '40px' }} src={getDiceSvg(resultTwo)} alt="" />
+            <img className={styles.dice} style={{ width: '40px', height: '40px' }} src={getDiceSvg(resultOne)} alt="" />
+            <img className={styles.dice} style={{ width: '40px', height: '40px' }} src={getDiceSvg(resultTwo)} alt="" />
         </div>
     );
 };

@@ -1,14 +1,15 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import styles from './board.module.css';
 import { Triangle } from '../Triangle';
+import { BackgammonContext } from '../../context/backgammonContext';
 
 export const Board = () => {
-    const [boardData, setBoardData] = useState(getInitialBoardData());
+    const { board, setBoard } = useContext(BackgammonContext);
 
     return (
         <div className={styles.container}>
             <div className={styles.middleBar}></div>
-            {boardData.map((row, rowIndex) => (
+            {board.map((row, rowIndex) => (
                 <div className={styles.row} key={Math.random(0, 200)}>
                     {row.map((triangle, triangleIndex) => (
                         <>
@@ -20,12 +21,4 @@ export const Board = () => {
             ))}
         </div>
     );
-};
-
-const getInitialBoardData = () => {
-    const initialData = [
-        [{ type: 'white', amount: 5 }, {}, {}, {}, { type: 'black', amount: 3 }, {}, { type: 'black', amount: 5 }, {}, {}, {}, {}, { type: 'white', amount: 2 }],
-        [{ type: 'black', amount: 5 }, {}, {}, {}, { type: 'white', amount: 3 }, {}, { type: 'white', amount: 5 }, {}, {}, {}, {}, { type: 'black', amount: 2 }],
-    ];
-    return initialData;
 };
