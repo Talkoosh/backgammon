@@ -2,7 +2,6 @@ import styles from './triangle.module.css';
 
 export const Triangle = ({ rowIndex, triangle }) => {
     const triangleHeight = Math.floor(window.innerHeight / 3);
-    console.log(triangle);
 
     return (
         <div style={rowIndex === 0 ? { borderTopWidth: triangleHeight } : { borderBottomWidth: triangleHeight }} className={`${rowIndex === 0 ? styles.triangleDown : styles.triangleUp} ${styles.triangle}`}>
