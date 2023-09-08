@@ -1,10 +1,17 @@
 import styles from './triangle.module.css';
 
-export const Triangle = ({ rowIndex, triangle }) => {
+export const Triangle = ({ rowIndex, triangle, triangleIndex, setSelectedPosition }) => {
     const triangleHeight = Math.floor(window.innerHeight / 3);
 
+    const onSelectTriangle = () => {
+        setSelectedPosition({
+            rowIndex,
+            triangleIndex,
+        });
+    };
+
     return (
-        <div style={rowIndex === 0 ? { borderTopWidth: triangleHeight } : { borderBottomWidth: triangleHeight }} className={`${rowIndex === 0 ? styles.triangleDown : styles.triangleUp} ${styles.triangle}`}>
+        <div onClick={onSelectTriangle} style={rowIndex === 0 ? { borderTopWidth: triangleHeight } : { borderBottomWidth: triangleHeight }} className={`${rowIndex === 0 ? styles.triangleDown : styles.triangleUp} ${styles.triangle}`}>
             <div className={rowIndex === 0 ? styles.checkersContainerTop : styles.checkersContainerBottom}>
                 {Array(triangle?.amount || 0)
                     .fill(0)
