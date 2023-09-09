@@ -1,13 +1,20 @@
 import styles from './triangle.module.css';
 
-export const Triangle = ({ rowIndex, triangle, triangleIndex, setSelectedPosition }) => {
+export const Triangle = ({ rowIndex, triangle, triangleIndex, setMoveFrom, moveFrom, setMoveTo }) => {
     const triangleHeight = Math.floor(window.innerHeight / 3);
 
     const onSelectTriangle = () => {
-        setSelectedPosition({
-            rowIndex,
-            triangleIndex,
-        });
+        if (!moveFrom) {
+            setMoveFrom({
+                rowIndex,
+                triangleIndex,
+            });
+        } else {
+            setMoveTo({
+                rowIndex,
+                triangleIndex,
+            });
+        }
     };
 
     return (

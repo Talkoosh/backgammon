@@ -13,8 +13,34 @@ export const BackgammonContextProvider = ({ children }) => {
 
 const getInitialBoardData = () => {
     const initialData = [
-        [{ type: 'white', amount: 5 }, {}, {}, {}, { type: 'black', amount: 3 }, {}, { type: 'black', amount: 5 }, {}, {}, {}, {}, { type: 'white', amount: 2 }],
-        [{ type: 'black', amount: 5 }, {}, {}, {}, { type: 'white', amount: 3 }, {}, { type: 'white', amount: 5 }, {}, {}, {}, {}, { type: 'black', amount: 2 }],
+        [
+            { type: 'white', amount: 5 },
+            { type: '', amount: 0 },
+            { type: '', amount: 0 },
+            { type: '', amount: 0 },
+            { type: 'black', amount: 3 },
+            { type: '', amount: 0 },
+            { type: 'black', amount: 5 },
+            { type: '', amount: 0 },
+            { type: '', amount: 0 },
+            { type: '', amount: 0 },
+            { type: '', amount: 0 },
+            { type: 'white', amount: 2 },
+        ],
+        [
+            { type: 'black', amount: 5 },
+            { type: '', amount: 0 },
+            { type: '', amount: 0 },
+            { type: '', amount: 0 },
+            { type: 'white', amount: 3 },
+            { type: '', amount: 0 },
+            { type: 'white', amount: 5 },
+            { type: '', amount: 0 },
+            { type: '', amount: 0 },
+            { type: '', amount: 0 },
+            { type: '', amount: 0 },
+            { type: 'black', amount: 2 },
+        ],
     ];
     return initialData;
 };
